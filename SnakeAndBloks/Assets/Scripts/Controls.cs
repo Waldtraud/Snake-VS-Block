@@ -4,66 +4,53 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    [SerializeField] private Transform _snakeHead;    
-    [SerializeField] private float _rotationSpeed; 
-   // private Vector3 _currentRotation;
-    //private Vector3 _currentPosition;
-    private Vector3 _moveForvard;
-     [SerializeField] private Quaternion _rotationLeft;
-    [SerializeField] private Quaternion _rotationRight;
-    //private float _minimumVert ;
-    //[SerializeField] private float _maximumVert;
-    private Quaternion _currentPosition;
+    [SerializeField] private float _speed;
 
-    [SerializeField] private float _moveSpeed;
-    //private float _rotationX;
+    [SerializeField] private GameObject _ground;
+    private float _groundBoundXMax;
+    private float _groundBoundXMin;
+
+    private float _oldPOsitionX;
+    private float _ealerY;
 
     private void Start()
     {
-        _currentPosition = transform.rotation;
+        var groundRenderer = _ground.GetComponent<Renderer>();
+        if (groundRenderer == null)
+            return;
+        var bounds = groundRenderer.bounds;
+        _groundBoundXMax = bounds.max.x;
+        _groundBoundXMin =  bounds.min.x;
+
     }
+
 
     void Update()
     {
-       
+        Vector3 newPosition = transform.position+transform.forward*_speed*Time.deltaTime;
+        newPosition.x = Mathf.Clamp(newPosition.x, _groundBoundXMin, _groundBoundXMax);
+        transform.position = newPosition;
 
-        float movement = Input.GetAxis("Horizontal");
-        _snakeHead.transform.position += new Vector3(_moveSpeed ,  0, movement* _rotationSpeed) * Time.deltaTime;
-       // Vector3 moveForward = _snakeHead.transform.position + new Vector3(movement, 0, 0) * _moveSpeed * Time.deltaTime;
-       
-           // _snakeHead.transform.Translate(_moveForvard);
-        
-        
-
-       
-   /* if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetMouseButtonDown(0))
         {
+            _oldPOsitionX = Input.mousePosition.x;
 
-            transform.rotation = Quaternion.Lerp(_currentPosition, _rotationLeft, Time.deltaTime * _rotationSpeed);
-            
-           
-            /* _currentRotation = new Vector3(0,0,) Vector3.up * -_rotationSpeed * Time.deltaTime; ;
-            transform.rotation = Quaternion.Lerp(transform.rotation, , Time.deltaTime * _rotationSpeed);
-            /* _moveDirection = Vector3.up * -turnSpeed * Time.deltaTime;
-            GameObject.transform.Rotate(_moveDirection);
         }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.rotation = Quaternion.Lerp(_currentPosition, _rotationRight, Time.deltaTime * _rotationSpeed);
-            return ;
-        }*/
-
         
+        if (Input.GetMouseButton(0))
+        {
 
+
+            float deltaZ = Input.mousePosition.x - _oldPOsitionX;
+            _oldPOsitionX = Input.mousePosition.x;
+
+            _ealerY += deltaZ;
+            _ealerY = Mathf.Clamp(_ealerY, -70, 70);
+
+            transform.eulerAngles = new Vector3(0,_ealerY,  0);
+        }
+       
     }
-
-        private void MoveForward()
-        {
-        _moveForvard = Vector3.left * _moveSpeed * Time.deltaTime;
-        _snakeHead.transform.Translate(_moveForvard);
-
-        }
   
 
 
