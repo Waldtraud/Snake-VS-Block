@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GroundMove : MonoBehaviour
 {
-    [SerializeField]  float _speed;
-    [SerializeField]  Transform _ground;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-    
+    // Update is called once per frame
     void Update()
     {
-        _ground.transform.position += new Vector3( 0, 0,-_speed* Time.deltaTime);
+        
     }
 }

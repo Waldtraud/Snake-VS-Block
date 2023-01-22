@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class SnakeTail : MonoBehaviour
 {
-    [SerializeField]  Transform _snakeHeat;
-    [SerializeField]  Transform _snakeBody;
+    [SerializeField]  Transform _snakeHead;
+    [SerializeField]   Transform _snakeBody;
     [SerializeField]  float _shpereDiameter;
     [SerializeField] float _distance;
 
     private List<Transform> _snakeTail = new List<Transform>();
     private List<Vector3> _positions = new List<Vector3>();
-    private Vector3 _oldPosition;
+   
     void Start()
     {
-       _positions.Add(_snakeHeat.position);
-       AddSphere();
-        AddSphere();
+       _positions.Add(_snakeHead.position);
+    
     }
 
     
    void Update()
     {
-        float distance = (_snakeHeat.position - _positions[0]).magnitude;
+        float distance = (_snakeHead.position - _positions[0]).magnitude;
 
         if (distance>_shpereDiameter)
         {
-            Vector3 direction = (_snakeHeat.position - _positions[0]).normalized;
+            Vector3 direction = (_snakeHead.position - _positions[0]).normalized;
             _positions.Insert(0, _positions[0] + direction * _shpereDiameter);
             _positions.RemoveAt(_positions.Count - 1);
             distance-=_shpereDiameter;
@@ -39,15 +38,12 @@ public class SnakeTail : MonoBehaviour
     }
 
     public void AddSphere()
-    {
+    {       
         
-            Transform bodySphere = Instantiate(_snakeBody, _positions[_positions.Count-1 ], Quaternion.identity, transform);
-            _snakeTail.Add(bodySphere);
-            _positions.Add(bodySphere.position);
+            Transform bodyPrefab = Instantiate(_snakeBody, _positions[_positions.Count-1 ], Quaternion.identity, transform);
+            _snakeTail.Add(bodyPrefab);
+            _positions.Add(bodyPrefab.position);
 
-        
-           
-        
     }
 
     public void RemoveSphere()

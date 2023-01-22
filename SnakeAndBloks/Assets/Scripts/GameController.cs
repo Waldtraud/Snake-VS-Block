@@ -5,29 +5,30 @@ using UnityEngine;
 using System;
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private SnakeTail _snakeTail;
+    public SnakeTail _snakeTail;
     //private FoodGetting _foodGetting;
     [SerializeField] TextMeshProUGUI _sphereText;
 
     private void Start()
     {
         EventManager.OnGettingFood.AddListener(GetFood);
-       
         
+
+
+
     }
     
     public void GetFood()
     {
         
         int sphereNumber = int.Parse(_sphereText.text);
-   
-            
-                _snakeTail.AddSphere();
-            
-
-            
-        
-
+        //Debug.Log(sphereNumber);
+        while (sphereNumber > 0)
+        {
+            _snakeTail.AddSphere();
+            sphereNumber--;
+        }
+          
     }
     
 

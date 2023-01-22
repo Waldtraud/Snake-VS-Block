@@ -21,10 +21,10 @@ public class FoodGetting : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out _snakeHead))
+        if (other.TryGetComponent(out SnakeTail snakeTail))
         {
 
-            Debug.Log(_sphereNumberText.text);
+           // Debug.Log(_sphereNumberText.text);
             EventManager.SentGettingFood();
             
         }
