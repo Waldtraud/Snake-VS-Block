@@ -1,36 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- using TMPro;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    //public SnakeTail SnakeTail;
-    //[SerializeField] public GatePassage GatePassage;
-    //private FoodGetting _foodGetting;
-    [SerializeField]  Controls Controls;
-   
+     public Controls Controls;
+    public bool IsPlaying { get; private set; }
+
 
 
     private void Start()
-    {
-       // EventManager.OnLossPlayer.AddListener(ShowScreen);
-        Controls.enabled = false;
+    {    
+        IsPlaying = false;
     }
 
     public void Play()
     {
-        Controls.enabled = true;
+        IsPlaying = true;
     }
 
-    
+
     public void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-   // public void 
+    public void LoadNextLevel()
+    {
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(nextLevelIndex);
+    }
 
 
 }

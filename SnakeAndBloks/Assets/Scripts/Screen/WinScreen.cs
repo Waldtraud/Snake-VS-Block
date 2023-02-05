@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class WinScreen : Screen
 {
-    [SerializeField] private GameObject _levelCompleted; 
+    [SerializeField] private GameObject _levelCompletedText;
+    [SerializeField] private CameraFollow _cameraFollow;
+    [SerializeField] private GameObject _resultText;
+    [SerializeField] private GameObject _buttonNextLevel;
 
 
     private void Start()
     {
-        //EventManager.OnLossPlayer.AddListener(ShowScreen);
+        EventManager.OnGettingFinish.AddListener(ShowScreen);
 
     }
     public override void ShowScreen()
     {
-        _levelCompleted.SetActive(true);
+        _levelCompletedText.SetActive(true);      
+        _resultText.SetActive(true);
+        _buttonNextLevel.SetActive(true); 
         
+        _cameraFollow.enabled = false;
+
     }
 
     public override void HideScreen()
     {
-        _levelCompleted.SetActive(false);
-        
+        _levelCompletedText.SetActive(false);
+        _resultText.SetActive(false);
+        _buttonNextLevel.SetActive(false);
+
     }
 }

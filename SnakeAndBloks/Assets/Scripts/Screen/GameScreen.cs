@@ -6,22 +6,18 @@ using TMPro;
 
 public class GameScreen : Screen
 {
-    [SerializeField] private GameObject _score;
-    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private GameObject _slider;   
 
-    private void Start()
-    {
-        _levelText.text = "Level"+SceneManager.GetActiveScene().name;
-    }
+    
     public override void ShowScreen()
     {
-        _score.SetActive(true);
+        _slider.SetActive(true);
 
     } 
 
     public override void HideScreen()
     {
-        _score.SetActive(false);
+        _slider.SetActive(false);
 
     }
 }

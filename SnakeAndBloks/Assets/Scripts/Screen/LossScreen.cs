@@ -5,7 +5,7 @@ using TMPro;
 
 public class LossScreen : Screen
 {
-    [SerializeField] private GameObject _tapToContinueText;
+ 
     [SerializeField] private GameObject _result;
     [SerializeField] private GameObject _button;
     [SerializeField] private GameObject _panel;
@@ -19,7 +19,7 @@ public class LossScreen : Screen
     }
     public override void ShowScreen()
     {
-        _tapToContinueText.SetActive(true);
+        
         _result.SetActive(true);
         _panel.SetActive(true);
         _button.SetActive(true);
@@ -29,9 +29,10 @@ public class LossScreen : Screen
 
     public override void HideScreen()
     {
-        _tapToContinueText.SetActive(false);
+       
         _result.SetActive(false);
         _panel.SetActive(false);
+        _button.SetActive(false);
         Controls.enabled = true;
     }
 }

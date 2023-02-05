@@ -5,8 +5,7 @@ using UnityEngine;
 public class ScreenManager : MonoBehaviour
 {
     private Screen _activScreen;
-    private List<Screen> _screens;
-   // [SerializeField] private SnakeTail snakeTail;
+    private List<Screen> _screens;  
 
     private void Start()
     {

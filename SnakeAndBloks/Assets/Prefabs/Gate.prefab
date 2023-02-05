@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gateNumberText: {fileID: 280852342333194920}
   _minGateNumber: 1
-  _maxGateNumber: 15
+  _maxGateNumber: 10
 --- !u!65 &1567448577210913667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -100,61 +100,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1597417611356756438}
     m_Modifications:
-    - target: {fileID: 1571443378866885390, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_fontSize
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1571443378866885390, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179112495533793197, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971121987934704567, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971121987934704567, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603810, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603810, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8376806097761603811, guid: 1792bb15449a37c448896841947e1384, type: 3}
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603813, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603813, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b661cb6d422d30745803363b25c0a6b1, type: 2}
     - target: {fileID: 8376806097761603815, guid: 1792bb15449a37c448896841947e1384, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603815, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603815, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603815, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8376806097761603815, guid: 1792bb15449a37c448896841947e1384, type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,12 +148,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8376806097761603815, guid: 1792bb15449a37c448896841947e1384, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 9057948653947900760, guid: 1792bb15449a37c448896841947e1384, type: 3}
+    - {fileID: 3770258756601371319, guid: 1792bb15449a37c448896841947e1384, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1792bb15449a37c448896841947e1384, type: 3}
 --- !u!114 &280852342333194920 stripped
 MonoBehaviour:
