@@ -1,2 +1,2 @@
 # Snake-VS-Block
-The cline of the popular game, just for my study
+The clone of the popular game, just for my study
